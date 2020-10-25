@@ -81,7 +81,7 @@ ALL_OBJ=$(OUTDIR)/sama5d2_I2C.o $(OUTDIR)/crc16fast.o \
 	$(OUTDIR)/LEPTON_I2C_Protocol.o $(OUTDIR)/LEPTON_I2C_Service.o \
 	$(OUTDIR)/LEPTON_SDK.o $(OUTDIR)/LEPTON_SYS.o $(OUTDIR)/LEPTON_OEM.o
 
-COMPILE= $(CXX) -fpermissive -mno-cygwin -c  -v  -o "$(OUTDIR)/$(*F).o" $(CFG_INC) "$<"
+COMPILE= $(CC) -fpermissive -Dlinux=1 -c  -v  -o "$(OUTDIR)/$(*F).o" $(CFG_INC) "$<"
 LINK=ar -rs  "$(OUTFILE)" $(OBJ)
 
 # Pattern rules
